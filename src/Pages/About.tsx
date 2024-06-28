@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom"
 import bck from "./../assets/about_background.png"
 import "./../App.css"
 const About = () => {
