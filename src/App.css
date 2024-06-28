@@ -1,0 +1,168 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img{
+  max-width: 100%;
+  display: block;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+button{
+  border: none;
+}
+.flex{
+  display: flex;
+}
+.both-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hori-center{
+  display: flex;
+  justify-content: center;
+}
+.verti-center{
+  display: flex;
+  align-items: center;
+}
+/* Home Page Css */
+
+/* Navbar css */
+
+.nav-bar{
+  height: 7em;
+  padding-left: 1.625em;
+  padding-right: 1.625em;
+  justify-content: space-between;
+  background-color: #FFF7ED;
+;
+}
+
+#logo{
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 1.62rem;
+}
+.links{
+  width: 7.25em;
+ column-gap: 20px;
+}
+a{
+  width: 3.36em;
+  text-decoration: none;
+  color: black;
+}
+
+/* Intro Css */
+.intro-container{
+  padding: 140px 30px 95px 30px;
+  background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.intro h2{
+  font-weight: 800;
+  color: #FFFFFF;
+  font-size: 2.2rem;
+  line-height: 1.18em;
+  margin-bottom: 1.2rem;
+}
+
+.intro p{
+  font-weight: 500;
+  color: #FFFFFF;
+  font-size: 1rem;
+  line-height: 2em;
+}
+#find{
+  margin-top: 48px;
+  background-color: #FF8C38;
+  width: 100%;
+  height: 3.125em;
+  border-radius: 5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* Footer CSS */
+.end{
+  height: 7em;
+  background-color:  #252525;
+  color: #AAAAAA;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+/* About Page CSS */
+.about-background{
+  max-width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+.about-container{
+  padding: 30px;
+  padding-top: 35px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.about-container h1{
+  font-family: Inter;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.1em;
+  color: #161616;
+}
+.about-container p{
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 1.3em;
+  color: #161616#161616
+}
+
+.msg{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 30px;
+  background-color: #FFCC8D;
+  max-width: 500px;
+  width: 100%;
+}
+.msg p{
+font-size: 1.5rem;
+font-weight: 700;
+line-height: 30px;
+}
+#explore{
+  background-color: #161616;
+  color: #FFFFFF;
+  width: 10em;
+  height: 3em;
+  border-radius: 10px;
+}
+@media screen and (max-width: 675px) {
+  .about-container{
+    align-items: center;
+    row-gap: 25px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .msg{
+    row-gap: 20px;
+  }
+  .about-container h1{
+    font-size: 1.8rem;
+    line-height: 1.6em;
+  }
+}
