@@ -4,13 +4,6 @@ import "./../App.css"
 const About = () => {
   return (
     <>
-        <div className="nav-bar verti-center">
-            <h1 id="logo">#VANLIFE</h1>
-            <div className="links flex">
-                <Link to="/home/about">About</Link>
-                <Link to="about">Vans</Link>
-            </div>
-        </div>
         <img src={bck} className="about-background" alt="" />
         <div className="about-container">
             <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>

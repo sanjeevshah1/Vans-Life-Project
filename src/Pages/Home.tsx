@@ -2,14 +2,7 @@ import {Link} from "react-router-dom"
 import "./../App.css"
 const Home = () => {
   return (
-    <>
-        <div className="nav-bar verti-center">
-            <h1 id="logo">#VANLIFE</h1>
-            <div className="links flex">
-                <Link to="/home/about">About</Link>
-                <Link to="about">Vans</Link>
-            </div>
-        </div>
+   <>
         <div className="intro-container both-center">
             <div className="intro">
                 <h2>You got the travel plans,
