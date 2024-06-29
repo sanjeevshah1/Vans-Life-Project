@@ -13,8 +13,7 @@ const VanDetail = () => {
   useEffect(() => {
     const fetchDetail = async () => {
       try {
-        
-        const response = await fetch("/api/vans");
+        const response = await fetch(`/api/vans/${id}`);
         if (!response.ok) {
           throw new Error("Network problem");
         }
@@ -22,8 +21,7 @@ const VanDetail = () => {
         if (!id) {
             throw new Error("Invalid van ID");
           }
-        const vanId:number = parseInt(id);
-        setVanDetail(data.vans[vanId - 1]);
+        setVanDetail(data.vans)
       } catch (error: any) {
         setError(error.message);
       } finally {
