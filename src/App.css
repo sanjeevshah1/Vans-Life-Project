@@ -216,6 +216,53 @@ line-height: 1.8em;
   border-radius: 5px;
 }
 
+/* Van Detail CSS */
+.detail-container{
+  padding: 1.625em;
+}
+#back{
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+.container{
+  margin: 50px;
+  display: flex;
+  column-gap: 100px;
+}
+.detail{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.detail button{
+  height: 2em;
+  width: 7.5em;
+  font-weight: 500;
+  border-radius: 5px;
+  color: #FFEAD0;
+}
+#rent{
+  margin-top: 35px;
+  background-color: #FF8C38;
+  width: 30%;
+  height: 3.125em;
+  border-radius: 5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+}
+#price{
+font-size: 1.2rem;
+font-weight: 600;
+line-height: 1.8em;
+margin-top: -10px;
+}
+#description{
+font-size: 1.5rem;
+font-weight: 500;
+line-height: 2.5rem;
+}
 @media screen and (max-width: 675px) {
   .about-container{
     align-items: center;

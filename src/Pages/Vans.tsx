@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./../App.css";
 import "../../server.js";
-import {VansType} from "./../types.ts"
+import {VansType} from "../types.ts"
 const Vans = () => {
 
   const [vans, setVans] = useState<VansType[]>([]);

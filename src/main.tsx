@@ -7,6 +7,8 @@ import './index.css'
 import Home from "./Pages/Home.tsx"
 import About from "./Pages/About.tsx"
 import Vans from './Pages/Vans.tsx'
+import VanDetail from './Pages/VanDetail'
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -23,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/about" element={<About />} />
         <Route path="/home/vans" element={<Vans />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
     </BrowserRouter>
 
