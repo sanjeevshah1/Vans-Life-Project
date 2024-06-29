@@ -43,6 +43,15 @@ const VanDetail = () => {
     return <div>No van details available.</div>;
   }
 
+  let backgroundColor:string = "";
+          if (vanDetail.type === "simple") {
+            backgroundColor = "#E17654";
+          } else if (vanDetail.type === "rugged") {
+            backgroundColor = "#115E59";
+          } else {
+            backgroundColor = "#161616";
+          }
+
   return (
     <div className="detail-container">
       <button>
@@ -53,7 +62,7 @@ const VanDetail = () => {
       <div className="container">
         <img src={vanDetail.imageUrl} alt={vanDetail.name} />
         <div className="detail">
-          <button style={{ backgroundColor: "#E17654" }}>{vanDetail.type}</button>
+          <button style={{ backgroundColor}}>{vanDetail.type[0].toUpperCase() + vanDetail.type.slice(1)}</button>
           <h2>{vanDetail.name}</h2>
           <p id="price">${vanDetail.price}/day</p>
           <p id="description">{vanDetail.description}</p>
