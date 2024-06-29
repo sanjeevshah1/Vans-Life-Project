@@ -1,5 +1,6 @@
 import bck from "./../assets/about_background.png"
 import "./../App.css"
+import {Link} from "react-router-dom"
 const About = () => {
   return (
     <>
@@ -13,7 +14,7 @@ const About = () => {
             <div className="msg">
                 <p>Your destination is waiting. <br />
                 Your van is ready.</p>
-                <button id="explore">Explore our vans</button>
+                <Link to="/vans"><button id="explore">Explore our vans</button></Link>
             </div>
         </div>
      </>
