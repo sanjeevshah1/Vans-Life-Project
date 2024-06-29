@@ -197,11 +197,11 @@ line-height: 1.8em;
 }
 .van button{
   margin-top: 5px;
-  background: pink;
   height: 2em;
   width: 7.5em;
   font-weight: 500;
   border-radius: 5px;
+  color: #FFEAD0;
 }
 #clear{
   text-decoration: line-through;
