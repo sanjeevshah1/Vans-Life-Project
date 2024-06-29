@@ -226,4 +226,40 @@ line-height: 1.8em;
     font-size: 1.8rem;
     line-height: 1.6em;
   }
+  .nav-bar{
+    height: 7em;
+    padding-left: 1.625em;
+    padding-right: 1.625em;
+    justify-content: space-between;
+  }
+  .vans-container{
+    padding: 25px;
+    margin-right: 0;
+  }
+  .actual-van-container{
+    padding: 0;
+    row-gap: 50px;
+    column-gap:30px;
+  }
+  .van{
+    width: 45%;
+    margin: 0;
+  }
+  .buttons{
+    column-gap: 10px;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .buttons button{
+    background: #FFEAD0;
+    height: 2em;
+    width: 6em;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  #clear{
+    margin-left: 10px;
+    padding: 5px;
+    width: 6em;
+  }
 }
