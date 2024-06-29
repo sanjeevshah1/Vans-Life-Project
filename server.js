@@ -1,6 +1,6 @@
 import { createServer, Model } from "miragejs"
 
-
+import React from "react"
 createServer({
     models: {
         vans: Model,
@@ -16,7 +16,7 @@ createServer({
     },
 
     routes() {
-        this.namespace = "api"
+        this.namespace = "/api"
 
         this.get("/vans", (schema, request) => {
             return schema.vans.all()
