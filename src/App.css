@@ -209,7 +209,7 @@ line-height: 1.8em;
   color: #FFEAD0;
 }
 #clear{
-  text-decoration: line-through;
+  text-decoration: underline;
   height: 2em;
   width: 7.5em;
   font-weight: 500;
@@ -221,13 +221,16 @@ line-height: 1.8em;
   padding: 1.625em;
 }
 #back{
-  text-decoration: line-through;
+  text-decoration: underline;
   margin-left: 10px;
 }
 .container{
   margin: 50px;
   display: flex;
   column-gap: 100px;
+}
+.container img{
+  width: 40%;
 }
 .detail{
   display: flex;

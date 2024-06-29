@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./../App.css";
 import "../../server.js";
 import {VansType} from "../types.ts"
+import {Link} from "react-router-dom"
 const Vans = () => {
 
   const [vans, setVans] = useState<VansType[]>([]);
@@ -68,12 +69,14 @@ const Vans = () => {
 
           return (
             <div className="van" key={van.id}>
-              <img src={van.imageUrl} alt={van.name} />
-              <div className="item-money">
-                <p>{van.name}</p>
-                <p>${van.price}/day</p>
-              </div>
-              <button style={{backgroundColor}}>{van.type.charAt(0).toUpperCase() + van.type.slice(1)}</button>
+              <Link to={`/vans/${van.id}`}>
+                <img src={van.imageUrl} alt={van.name} />
+                <div className="item-money">
+                  <p>{van.name}</p>
+                  <p>${van.price}/day</p>
+                </div>
+                <button style={{backgroundColor}}>{van.type.charAt(0).toUpperCase() + van.type.slice(1)}</button>
+              </Link>
             </div>
           );
         })}
