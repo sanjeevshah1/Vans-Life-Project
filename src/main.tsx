@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import  {BrowserRouter, Routes, Route, Link} from "react-router-dom"
 import App from './App.tsx'
 import "./App.css"
 import './index.css'
-import  {BrowserRouter, Routes, Route, Link} from "react-router-dom"
 import Home from "./Pages/Home.tsx"
 import About from "./Pages/About.tsx"
 import Vans from './Pages/Vans.tsx'
@@ -24,7 +24,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/home/vans" element={<Vans />} />
         <Route path="/vans" element={<Vans />} />
       </Routes>
-      {/* <App /> */}
     </BrowserRouter>
 
 
