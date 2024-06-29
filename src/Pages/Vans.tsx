@@ -1,16 +1,8 @@
 import { useEffect, useState } from "react";
 import "./../App.css";
-import "./../../server.js";
-
+import "../../server.js";
+import {VansType} from "./../types.ts"
 const Vans = () => {
-  interface VansType {
-    description: string;
-    id: string;
-    imageUrl: string;
-    name: string;
-    price: number;
-    type: string;
-  }
 
   const [vans, setVans] = useState<VansType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

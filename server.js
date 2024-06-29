@@ -1,6 +1,5 @@
 import { createServer, Model } from "miragejs"
 
-import React from "react"
 createServer({
     models: {
         vans: Model,
