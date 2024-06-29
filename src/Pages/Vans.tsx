@@ -51,7 +51,9 @@ const Vans = () => {
           <button>Luxury</button>
           <button>Rugged</button>
         </div>
-        <button id="clear">Clear list</button>
+        <button id="clear" onClick={()=>{
+          setVans([]);
+        }}>Clear list</button>
       </div>
       <div className="actual-van-container">
         {vans.map((van) => {

@@ -1,4 +1,5 @@
 import "./../App.css"
+import {Link} from "react-router-dom"
 const Home = () => {
   return (
    <>
@@ -7,7 +8,7 @@ const Home = () => {
                 <h2>You got the travel plans,
                     we  <br /> got the travel vans.</h2>
                 <p>Add adventure to your life by joining the #vanlife movement.<br />  Rent the perfect van to make your perfect road trip.</p>
-                <button id="find">Find your van</button>
+                <Link to="/vans" id="find"><button id="find">Find your van</button></Link>
             </div>
         </div>
         <div className="end both-center">
