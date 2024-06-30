@@ -8,24 +8,18 @@ import Home from "./Pages/Home.tsx"
 import About from "./Pages/About.tsx"
 import Vans from './Pages/Vans.tsx'
 import VanDetail from './Pages/VanDetail'
-
+import Layout from './Components/Layout.tsx'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <div className="nav-bar verti-center">
-            <Link id="logo" to="home">#VANLIFE</Link>
-            <div className="links flex">
-                <Link to="about">About</Link>
-                <Link to="vans">Vans</Link>
-            </div>
-        </div>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/home/vans" element={<Vans />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetail />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<App />} />
+          <Route path="home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
 

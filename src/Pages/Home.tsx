@@ -11,11 +11,6 @@ const Home = () => {
                 <Link to="/vans" id="find"><button id="find">Find your van</button></Link>
             </div>
         </div>
-        <div className="end both-center">
-            <footer>
-                <p>Ⓒ 2022 #VANLIFE</p>
-            </footer>
-        </div>
     </>
   )
 }
