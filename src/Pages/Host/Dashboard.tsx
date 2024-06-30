@@ -3,8 +3,8 @@ import van from "./../../assets/van.png"
 const Dashboard = () => {
  return(
     <div className="dashboard-container">
-        <div className="welcome">
-          <div className="welcome-first">
+        <div className="welcome flex verti-center">
+          <div className="welcome-first flex column">
             <h2>Welcome!</h2>
             <p>Income last <span id="days">30 days</span></p>
             <p id="rate">$2,260</p>
@@ -13,7 +13,7 @@ const Dashboard = () => {
             <p>Details</p>
           </div>
         </div>
-        <div className="review">
+        <div className="review flex verti-center">
             <p>Review score</p>
             <img src={Star} alt="star-logo" id="star"/>
             <p><b>5.0</b>/5</p>

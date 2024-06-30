@@ -59,9 +59,9 @@ const VanDetail = () => {
           ⬅️ <span id="back">Back to all vans</span>
         </Link>
       </button>
-      <div className="container">
+      <div className="container flex">
         <img src={vanDetail.imageUrl} alt={vanDetail.name} />
-        <div className="detail">
+        <div className="detail flex column">
           <button style={{ backgroundColor}}>{vanDetail.type[0].toUpperCase() + vanDetail.type.slice(1)}</button>
           <h2>{vanDetail.name}</h2>
           <p id="price">${vanDetail.price}/day</p>

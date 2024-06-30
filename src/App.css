@@ -33,6 +33,9 @@ button{
   display: flex;
   align-items: center;
 }
+.column{
+  flex-direction: column;
+}
 /* Home Page Css */
 
 /* Navbar css */
@@ -112,8 +115,6 @@ a{
   padding: 30px;
   padding-top: 35px;
   padding-bottom: 40px;
-  display: flex;
-  flex-direction: column;
   row-gap: 20px;
 }
 .about-container h1{
@@ -131,8 +132,6 @@ a{
 }
 
 .msg{
-  display: flex;
-  flex-direction: column;
   row-gap: 20px;
   padding: 30px;
   background-color: #FFCC8D;
@@ -157,8 +156,6 @@ line-height: 30px;
   padding: 1.625em;
 }
 .actual-van-container{
-  display: flex;
-  justify-content: center;
   width: 100%;
   overflow: visible;
   flex-wrap: wrap;
@@ -177,7 +174,6 @@ line-height: 30px;
   margin-bottom: 20px;
 }
 .item-money{
-  display: flex;
   justify-content: space-between;
 }
 .item-money > p{
@@ -223,15 +219,12 @@ line-height: 1.8em;
 }
 .container{
   margin: 50px;
-  display: flex;
   column-gap: 100px;
 }
 .container img{
   width: 40%;
 }
 .detail{
-  display: flex;
-  flex-direction: column;
   row-gap: 20px;
 }
 .detail button{
@@ -267,7 +260,6 @@ line-height: 2.5rem;
 /* Host Page CSS */
 
 .host-nav-bar{
-  display: flex;
   padding-left: 1.625em;
   margin-bottom: 30px;
 }
@@ -281,12 +273,8 @@ line-height: 2.5rem;
 .welcome{
   padding: 2em 1.625em 2em 1.625em;
   background-color: #FFEAD0;
-  display: flex;
-  align-items: center;
 }
 .welcome-first{
-  display: flex;
-  flex-direction: column;
   row-gap: 20px;
 }
 .welcome-second{
@@ -298,10 +286,10 @@ line-height: 2.5rem;
 }
 #days{
   text-decoration: underline;
+  color: #4D4D4D;
+  font-size: 1.01rem;
 }
 .review{
-  display: flex;
-  align-items: center;
   background-color: #FFDDB2;
   padding: 2em 1.625em 2em 1.625em;
 }
@@ -328,11 +316,12 @@ font-weight: 700;
 margin-bottom: 10px;
 }
 .van-box{
+  border: 1px solid black;
   padding: 1.1em 1.625em 1.1em 1.625em;
   margin-top: 20px;
   background-color: #FFFFFF;
-  display: flex;
   column-gap: 20px;
+  display: flex;
   align-items: center;
 }
 .van-box img{
@@ -353,8 +342,42 @@ margin-bottom: 10px;
 /* Revie Page CSS */
 
 .review-container{
-  border: 1px solid black;
   padding: 2em 1.625em 4em 1.625em;
+}
+.your-review{
+  margin-bottom: 30px;
+}
+.first p:first-child{
+  font-size: 2rem;  
+  font-weight: 700;
+  margin-right: 30px;
+}
+.rating{
+  column-gap: 10px;
+  margin-bottom: 30px;
+}
+.rating p:first-child{
+  font-size: 2rem;
+  font-weight: 700;
+}
+.rate-percent{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px; 
+}
+.percent-bar{
+  border: 1px solid black;
+  height: 12px;
+  max-width: 800px;
+  width: 70%;
+  border-radius: 8px;
+  margin-left: 20%;
+  margin-right: auto;
+}
+.inner-100{
+  background-color: orange;
+  height: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 675px) {

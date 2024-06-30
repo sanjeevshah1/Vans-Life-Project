@@ -2,7 +2,7 @@ import {Link, Outlet} from "react-router-dom"
 const HostLayout = () => {
   return (
     <>
-     <div className="host-nav-bar">
+     <div className="host-nav-bar flex">
         <Link to="dashboard">Dashboard</Link>
         <Link to="income">Income</Link>
         <Link to="vans">Vans</Link>

@@ -6,7 +6,7 @@ const HostVans = () => {
                 <p>Your Listed Vans</p>
                 <p>View all</p>
             </div>
-            <div className="van-box">
+            <div className="van-box verti-center">
                 <img src={van} alt="van" />
                 <div className="van-explain">
                     <p>Modest Explorer</p>
@@ -14,7 +14,7 @@ const HostVans = () => {
                 </div>
                 <p>Edit</p>
             </div>
-            <div className="van-box">
+            <div className="van-box verti-center">
                 <img src={van} alt="van" />
                 <div className="van-explain">
                     <p>Modest Explorer</p>
@@ -22,7 +22,7 @@ const HostVans = () => {
                 </div>
                 <p>Edit</p>
             </div>
-            <div className="van-box">
+            <div className="van-box verti-center">
                 <img src={van} alt="van" />
                 <div className="van-explain">
                     <p>Modest Explorer</p>

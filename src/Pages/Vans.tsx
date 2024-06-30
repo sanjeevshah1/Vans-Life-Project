@@ -56,7 +56,7 @@ const Vans = () => {
           setVans([]);
         }}>Clear list</button>
       </div>
-      <div className="actual-van-container">
+      <div className="actual-van-container verti-center">
         {vans.map((van) => {
           let backgroundColor:string = "";
           if (van.type === "simple") {
@@ -71,7 +71,7 @@ const Vans = () => {
             <div className="van" key={van.id}>
               <Link to={`/vans/${van.id}`}>
                 <img src={van.imageUrl} alt={van.name} />
-                <div className="item-money">
+                <div className="item-money flex">
                   <p>{van.name}</p>
                   <p>${van.price}/day</p>
                 </div>
