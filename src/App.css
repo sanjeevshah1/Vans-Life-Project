@@ -49,12 +49,9 @@ button{
   font-weight: 900;
   font-size: 1.62rem;
 }
-.links{
-  width: 7.25em;
- column-gap: 20px;
-}
+
 a{
-  width: 3.36em;
+  min-width: 3.36em;
   text-decoration: none;
   color: black;
 }
@@ -266,6 +263,92 @@ font-size: 1.5rem;
 font-weight: 500;
 line-height: 2.5rem;
 }
+
+/* Host Page CSS */
+
+.host-nav-bar{
+  display: flex;
+  padding-left: 1.625em;
+  margin-bottom: 30px;
+}
+.host-nav-bar a{
+  font-size: 1rem;
+  font-weight: 500;
+}
+.host-nav-bar a:not(:last-child){
+  margin-right: 1em;
+}
+.welcome{
+  padding: 2em 1.625em 2em 1.625em;
+  background-color: #FFEAD0;
+  display: flex;
+  align-items: center;
+}
+.welcome-first{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.welcome-second{
+  margin-left: auto;
+}
+#rate{
+  font-size: 3rem;
+  font-weight: 800;
+}
+#days{
+  text-decoration: underline;
+}
+.review{
+  display: flex;
+  align-items: center;
+  background-color: #FFDDB2;
+  padding: 2em 1.625em 2em 1.625em;
+}
+.review p:first-of-type{
+margin-right: 10px;
+}
+.review p:last-of-type{
+  margin-left: auto;
+}
+#star{
+  width: 20px;
+  margin: 2px;
+}
+.listed-vans{
+  padding: 2em 1.625em 4em 1.625em;
+}
+.head{
+  display: flex;
+  justify-content: space-between;
+}
+.head p:first-of-type{
+font-size: 1.5rem;
+font-weight: 700;
+margin-bottom: 10px;
+}
+.van-box{
+  padding: 1.1em 1.625em 1.1em 1.625em;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+.van-box img{
+  width: 65.88px;
+  border-radius: 5px;
+}
+.van-box p{
+  margin-left: auto;
+}
+.van-explain p:first-child{
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.van-explain p:last-child{
+  color: #4D4D4D;
+}
 @media screen and (max-width: 675px) {
   .about-container{
     align-items: center;
@@ -334,7 +417,6 @@ line-height: 2.5rem;
   #rent{
     margin: 0 auto;
   }
-  
   #description{
   font-size: 1.2rem;
   line-height: 2.4rem;
