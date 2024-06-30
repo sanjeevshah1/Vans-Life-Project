@@ -349,6 +349,14 @@ margin-bottom: 10px;
 .van-explain p:last-child{
   color: #4D4D4D;
 }
+
+/* Revie Page CSS */
+
+.review-container{
+  border: 1px solid black;
+  padding: 2em 1.625em 4em 1.625em;
+}
+
 @media screen and (max-width: 675px) {
   .about-container{
     align-items: center;
