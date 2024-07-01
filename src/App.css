@@ -74,7 +74,10 @@ a{
   line-height: 1.18em;
   margin-bottom: 1.2rem;
 }
-
+a{
+  text-align: center;
+  padding: 2px;
+}
 .intro p{
   font-weight: 500;
   color: #FFFFFF;
@@ -94,6 +97,12 @@ a{
 }
 #find a{
   width: 500px;
+}
+
+/* Active Link CSS */
+.current-link{
+  padding-bottom: 5px;
+  border-bottom: 2px solid black;
 }
 
 /* Footer CSS */
@@ -445,6 +454,60 @@ font-weight: 600;
   font-weight: 500;
   color: #4D4D4D;
   ;
+}
+
+/* Host Vans Details CSS */
+.host-van-detail-container{
+  padding: 2em 1.625em 2em 1.625em;
+}
+
+/* Van Detail CSS */
+.detail-container{
+  padding: 1.625em;
+}
+#back{
+  text-decoration: underline;
+  margin-left: 10px;
+}
+.host-detail{
+  border: 1px solid black;
+  padding: 2em;
+  background-color: #FFFFFF;
+  margin-top: 2em;
+}
+.first-row{
+  display: flex;
+  column-gap: 40px;
+  align-items: center;
+}
+.first-row img{
+  width: 15%;
+  height: 15%;
+}
+.temp{
+display: flex;
+flex-direction: column;
+row-gap: 8px;
+}
+.temp button{
+  width: 7.5em;
+  height: 2.2em;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: -40px;
+}
+.temp h2{
+  font-size: 28px;
+}
+.host-van-detail-nav{
+padding: 1em;
+border: 1px solid pink;
+}
+.host-van-detail-nav a{
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4D4D4D;
 }
 @media screen and (max-width: 675px) {
   .about-container{
