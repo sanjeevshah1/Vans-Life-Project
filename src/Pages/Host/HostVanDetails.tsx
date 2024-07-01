@@ -12,7 +12,7 @@ const HostVanDetails = () => {
             .then(data => setCurrentVan(data.vans[0]))
     }, [])
     if(!currentVan) {
-        return <div>No van Detail found</div>
+        return <div>Loading......</div>
     }
   return (
     <div className="host-van-detail-container">
@@ -31,7 +31,7 @@ const HostVanDetails = () => {
             </div>
         </div>
         <nav className="host-van-detail-nav">
-            <NavLink to="/vans/1" className={({isActive}) => isActive? "current-link" : ""}>
+            <NavLink to="details" className={({isActive}) => isActive? "current-link" : ""}>
                 Details
             </NavLink>
             <NavLink to="pricing" className={({isActive}) => isActive? "current-link" : ""}>
