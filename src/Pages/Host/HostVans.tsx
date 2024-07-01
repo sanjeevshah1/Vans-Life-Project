@@ -4,7 +4,6 @@ const HostVans = () => {
     <div className="listed-vans">
             <div className="head">
                 <p>Your Listed Vans</p>
-                <p>View all</p>
             </div>
             <div className="van-box verti-center">
                 <img src={van} alt="van" />

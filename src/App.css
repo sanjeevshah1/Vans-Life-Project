@@ -344,6 +344,14 @@ margin-bottom: 10px;
 .review-container{
   padding: 2em 1.625em 4em 1.625em;
 }
+.heading{
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 5px;
+}
+.review-day{
+  align-items: flex-end;
+}
 .your-review{
   margin-bottom: 30px;
 }
@@ -380,6 +388,64 @@ margin-bottom: 10px;
   width: 100%;
 }
 
+.review-box{
+  border-bottom: 1px solid #C7C7C7;
+  flex-direction: column;
+  row-gap: 12px;
+  padding: 25px;
+}
+.review-box p:first-of-type{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+#full-date{
+color: #8C8C8C;
+}
+.review-lists p:first-child{
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.multiple-stars{
+  width: 20px;
+}
+.mini-star{
+  margin-bottom: 0;
+}
+
+/* Income Page CSS */
+
+.income-container{
+  padding: 2em 1.625em 2em 1.625em;
+}
+
+#bar-graph{
+  width: 400px;
+}
+.income-box p:first-child{
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.income-box p:last-child{
+  color: #4D4D4D;
+}
+.income-box{
+  justify-content: space-between;
+  padding: 1.3em 1.625em 1.3em 1.625em;
+ background-color: #FFFFFF;
+}
+.income-box:not(:last-of-type){
+  margin-bottom: 30px;
+}
+.income-box p:first-child{
+font-size: 2rem;
+font-weight: 600;
+}
+.income-box p:lastt-child{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #4D4D4D;
+  ;
+}
 @media screen and (max-width: 675px) {
   .about-container{
     align-items: center;
