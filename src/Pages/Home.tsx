@@ -5,6 +5,7 @@ const Home = () => {
    <>
         <div className="intro-container both-center">
             <div className="intro">
+                <h1>Just Checking</h1>
                 <h2>You got the travel plans,
                     we  <br /> got the travel vans.</h2>
                 <p>Add adventure to your life by joining the #vanlife movement.<br />  Rent the perfect van to make your perfect road trip.</p>
