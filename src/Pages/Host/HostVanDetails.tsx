@@ -1,5 +1,4 @@
 import {Link, NavLink, Outlet, useParams} from "react-router-dom"
-import van from "./../../assets/van.png"
 import { useEffect, useState } from "react"
 import { VansType } from "../../types"
 // import { useState } from "react"
