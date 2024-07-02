@@ -3,7 +3,6 @@ import "./../App.css";
 import "../../server.js";
 import {VansType} from "../types.ts"
 import {Link, useSearchParams} from "react-router-dom"
-import { handleClick } from "../utils.tsx";
 
 const Vans: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,6 +25,7 @@ const Vans: React.FC = () => {
       return prevParams
     })
   } 
+  
   // const handleClick = (event:React.MouseEvent<HTMLButtonElement>) =>{
   //   const {value} = event.currentTarget;
   //   setSearchParams({type: value.toLowerCase()});
@@ -71,14 +71,14 @@ const Vans: React.FC = () => {
       <h2>Explore our van options</h2>
       <div className="filters flex">
         <div className="buttons flex">
-          <button onClick={() => handleClick("type","simple")} >Simple</button>
-          <button onClick={() => handleClick("type","luxury")} >Luxury</button>
-          <button onClick={() => handleClick("type","rugged")} >Rugged</button>
+          <button onClick={() => handleClick("type","simple")} style={typeFilter === "simple" ? {backgroundColor: "#E17654", color: "white" } : {}} >Simple</button>
+          <button onClick={() => handleClick("type","luxury")} style={typeFilter === "luxury" ? {backgroundColor: "#161616", color: "white" } : {}}>Luxury</button>
+          <button onClick={() => handleClick("type","rugged")} style={typeFilter === "rugged" ? {backgroundColor: "#115E59", color: "white" } : {}}>Rugged</button>
           {/* <button onClick={handleClick} value="simple">Simple</button>
           <button onClick={handleClick} value="luxury">Luxury</button>
           <button onClick={handleClick} value="rugged">Rugged</button> */}
         </div>
-        <button id="clear" onClick={() => handleClick("type",null)}>Clear list</button>
+        {typeFilter && <button id="clear" onClick={() => handleClick("type",null)}>Clear list</button>}
       </div>
       <div className="actual-van-container verti-center">
         {filteredVans.map((van) => {
@@ -92,7 +92,7 @@ const Vans: React.FC = () => {
           }
           return (
             <div className="van" key={van.id}>
-              <Link to={`/vans/${van.id}`}>
+              <Link to={van.id}>
                 <img src={van.imageUrl} alt={van.name} />
                 <div className="item-money flex">
                   <p>{van.name}</p>
