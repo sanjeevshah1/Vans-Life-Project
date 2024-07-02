@@ -65,7 +65,7 @@ const Vans: React.FC = () => {
           <button onClick={handleClick} value="rugged">Rugged</button>
         </div>
         <button id="clear" onClick={()=>{
-          setSearchParams({type: ""});
+          setSearchParams({});
         }}>Clear list</button>
       </div>
       <div className="actual-van-container verti-center">
