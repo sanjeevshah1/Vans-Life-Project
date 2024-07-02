@@ -40,7 +40,7 @@ const HostVanDetails = () => {
                 Photo
             </NavLink>
         </nav>
-        <Outlet/>
+        <Outlet context={currentVan}/>
       </div>
     </div>
   )
