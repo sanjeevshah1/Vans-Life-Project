@@ -3,9 +3,10 @@ import "./../App.css";
 import "../../server.js";
 import {VansType} from "../types.ts"
 import {Link, useSearchParams} from "react-router-dom"
+
 const Vans: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const typeFilter = searchParams.get("type") || "";
+  const typeFilter = searchParams.get("type");
   const [vans, setVans] = useState<VansType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   
@@ -14,10 +15,21 @@ const Vans: React.FC = () => {
     name: string;
     stack?: string;
   };
-  const handleClick = (event:React.MouseEvent<HTMLButtonElement>) =>{
-    const {value} = event.currentTarget;
-    setSearchParams({type: value.toLowerCase()});
+  
+  const handleClick = (key:string, name: (string | null)) =>{
+    setSearchParams((prevParams) =>{
+      if(name === null) prevParams.delete(key)
+        else{
+            prevParams.set(key, name);
+          }
+      return prevParams
+    })
   } 
+  
+  // const handleClick = (event:React.MouseEvent<HTMLButtonElement>) =>{
+  //   const {value} = event.currentTarget;
+  //   setSearchParams({type: value.toLowerCase()});
+  // } 
 
   const [error, setError] = useState<Error | null>(null);
 
@@ -51,22 +63,22 @@ const Vans: React.FC = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  const filteredVans = vans.filter((van) =>{
-    if(typeFilter == "") return true;
+  const filteredVans = typeFilter ? vans.filter((van) =>{
     return van.type === typeFilter;
-  });
+  }) : vans;
   return (
     <div className="vans-container">
       <h2>Explore our van options</h2>
       <div className="filters flex">
         <div className="buttons flex">
-          <button onClick={handleClick} value="simple">Simple</button>
+          <button onClick={() => handleClick("type","simple")} style={typeFilter === "simple" ? {backgroundColor: "#E17654", color: "white" } : {}} >Simple</button>
+          <button onClick={() => handleClick("type","luxury")} style={typeFilter === "luxury" ? {backgroundColor: "#161616", color: "white" } : {}}>Luxury</button>
+          <button onClick={() => handleClick("type","rugged")} style={typeFilter === "rugged" ? {backgroundColor: "#115E59", color: "white" } : {}}>Rugged</button>
+          {/* <button onClick={handleClick} value="simple">Simple</button>
           <button onClick={handleClick} value="luxury">Luxury</button>
-          <button onClick={handleClick} value="rugged">Rugged</button>
+          <button onClick={handleClick} value="rugged">Rugged</button> */}
         </div>
-        <button id="clear" onClick={()=>{
-          setSearchParams({type: ""});
-        }}>Clear list</button>
+        {typeFilter && <button id="clear" onClick={() => handleClick("type",null)}>Clear list</button>}
       </div>
       <div className="actual-van-container verti-center">
         {filteredVans.map((van) => {
@@ -80,7 +92,7 @@ const Vans: React.FC = () => {
           }
           return (
             <div className="van" key={van.id}>
-              <Link to={`/vans/${van.id}`}>
+              <Link to={van.id}>
                 <img src={van.imageUrl} alt={van.name} />
                 <div className="item-money flex">
                   <p>{van.name}</p>
