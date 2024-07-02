@@ -325,7 +325,6 @@ font-weight: 700;
 margin-bottom: 10px;
 }
 .van-box{
-  border: 1px solid black;
   padding: 1.1em 1.625em 1.1em 1.625em;
   margin-top: 20px;
   background-color: #FFFFFF;
@@ -458,7 +457,7 @@ font-weight: 600;
 
 /* Host Vans Details CSS */
 .host-van-detail-container{
-  padding: 2em 1.625em 2em 1.625em;
+  padding: 2em 1.6em 2em 1.6em;
 }
 
 /* Van Detail CSS */
@@ -470,8 +469,7 @@ font-weight: 600;
   margin-left: 10px;
 }
 .host-detail{
-  border: 1px solid black;
-  padding: 2em;
+  padding: 1em;
   background-color: #FFFFFF;
   margin-top: 2em;
 }
@@ -488,6 +486,7 @@ font-weight: 600;
 display: flex;
 flex-direction: column;
 row-gap: 8px;
+
 }
 .temp button{
   width: 7.5em;
@@ -501,7 +500,6 @@ row-gap: 8px;
 }
 .host-van-detail-nav{
 padding: 1em;
-border: 1px solid pink;
 }
 .host-van-detail-nav a{
   margin-right: 10px;
@@ -509,6 +507,31 @@ border: 1px solid pink;
   font-weight: 500;
   color: #4D4D4D;
 }
+
+/* Host Van Detail CSS */
+.detail-container p{
+font-size: 0.9rem;
+font-weight: 500;
+color: #161616;
+line-height: 21.46px;
+letter-spacing: 1px
+}
+.detail-container p span{
+font-size: 0.9rem;
+font-weight: 700;
+}
+.transaction{
+  justify-content: space-between;
+}
+/* Price Page Css */
+.price-container{
+  padding: 1.625em;
+}
+.price-container img{
+  width: 15%;
+  height: 15%;
+}
+
 @media screen and (max-width: 675px) {
   .about-container{
     align-items: center;
@@ -581,4 +604,7 @@ border: 1px solid pink;
   font-size: 1.2rem;
   line-height: 2.4rem;
   }
+  .detail-container p{
+    letter-spacing: 3px;
+    }
 }

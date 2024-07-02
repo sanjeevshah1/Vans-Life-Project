@@ -4,7 +4,7 @@ const HostLayout = () => {
     <>
      <div className="host-nav-bar flex">
         <NavLink
-         to="/host"
+         to="."
          end
         className={({ isActive }) => (isActive ? "current-link" : "")}
         >Dashboard</NavLink>

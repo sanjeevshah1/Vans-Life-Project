@@ -55,7 +55,8 @@ const VanDetail = () => {
   return (
     <div className="detail-container">
       <button>
-        <Link to="/vans">
+        <Link to=".."
+        relative="path">
           ⬅️ <span id="back">Back to all vans</span>
         </Link>
       </button>

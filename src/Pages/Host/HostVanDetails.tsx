@@ -1,7 +1,6 @@
 import {Link, NavLink, Outlet, useParams} from "react-router-dom"
 import { useEffect, useState } from "react"
 import { VansType } from "../../types"
-// import { useState } from "react"
 import "./../../../server.js"
 const HostVanDetails = () => {
     const { id } = useParams()
@@ -12,12 +11,12 @@ const HostVanDetails = () => {
             .then(data => setCurrentVan(data.vans[0]))
     }, [])
     if(!currentVan) {
-        return <div>No van Detail found</div>
+        return <div>Loading......</div>
     }
   return (
     <div className="host-van-detail-container">
         <button>
-        <Link to="host/vans">
+        <Link to=".."relative="path">
           ⬅️ <span id="back">Back to all vans</span>
         </Link>
       </button>
@@ -31,7 +30,7 @@ const HostVanDetails = () => {
             </div>
         </div>
         <nav className="host-van-detail-nav">
-            <NavLink to="/vans/1" className={({isActive}) => isActive? "current-link" : ""}>
+            <NavLink to="." end className={({isActive}) => isActive? "current-link" : ""}>
                 Details
             </NavLink>
             <NavLink to="pricing" className={({isActive}) => isActive? "current-link" : ""}>
@@ -41,7 +40,7 @@ const HostVanDetails = () => {
                 Photo
             </NavLink>
         </nav>
-        <Outlet/>
+        <Outlet context={currentVan}/>
       </div>
     </div>
   )

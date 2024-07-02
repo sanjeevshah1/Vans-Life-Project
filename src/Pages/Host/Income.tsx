@@ -12,7 +12,10 @@ const Income = () => {
       <img src={barGraph} id="bar-graph" alt="bar-graph" />
       <br />
       <br />
-        <p className="heading">Your Listed Vans</p>
+      <div className="transaction verti-center">
+        <p className="heading">Your transactions (3)</p>
+        <p>Last <span id="days">30 days</span></p>
+      </div>
         <br />
       <div className="income-box  verti-center">
             <p>$720</p>
