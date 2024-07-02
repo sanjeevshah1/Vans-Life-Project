@@ -3,9 +3,11 @@ import "./../App.css";
 import "../../server.js";
 import {VansType} from "../types.ts"
 import {Link, useSearchParams} from "react-router-dom"
+import { handleClick } from "../utils.tsx";
+
 const Vans: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const typeFilter = searchParams.get("type") || "";
+  const typeFilter = searchParams.get("type");
   const [vans, setVans] = useState<VansType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   
@@ -14,10 +16,20 @@ const Vans: React.FC = () => {
     name: string;
     stack?: string;
   };
-  const handleClick = (event:React.MouseEvent<HTMLButtonElement>) =>{
-    const {value} = event.currentTarget;
-    setSearchParams({type: value.toLowerCase()});
+  
+  const handleClick = (key:string, name: (string | null)) =>{
+    setSearchParams((prevParams) =>{
+      if(name === null) prevParams.delete(key)
+        else{
+            prevParams.set(key, name);
+          }
+      return prevParams
+    })
   } 
+  // const handleClick = (event:React.MouseEvent<HTMLButtonElement>) =>{
+  //   const {value} = event.currentTarget;
+  //   setSearchParams({type: value.toLowerCase()});
+  // } 
 
   const [error, setError] = useState<Error | null>(null);
 
@@ -51,22 +63,22 @@ const Vans: React.FC = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  const filteredVans = vans.filter((van) =>{
-    if(typeFilter == "") return true;
+  const filteredVans = typeFilter ? vans.filter((van) =>{
     return van.type === typeFilter;
-  });
+  }) : vans;
   return (
     <div className="vans-container">
       <h2>Explore our van options</h2>
       <div className="filters flex">
         <div className="buttons flex">
-          <button onClick={handleClick} value="simple">Simple</button>
+          <button onClick={() => handleClick("type","simple")} >Simple</button>
+          <button onClick={() => handleClick("type","luxury")} >Luxury</button>
+          <button onClick={() => handleClick("type","rugged")} >Rugged</button>
+          {/* <button onClick={handleClick} value="simple">Simple</button>
           <button onClick={handleClick} value="luxury">Luxury</button>
-          <button onClick={handleClick} value="rugged">Rugged</button>
+          <button onClick={handleClick} value="rugged">Rugged</button> */}
         </div>
-        <button id="clear" onClick={()=>{
-          setSearchParams({});
-        }}>Clear list</button>
+        <button id="clear" onClick={() => handleClick("type",null)}>Clear list</button>
       </div>
       <div className="actual-van-container verti-center">
         {filteredVans.map((van) => {
