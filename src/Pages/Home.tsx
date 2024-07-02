@@ -4,12 +4,14 @@ const Home = () => {
   return (
    <>
         <div className="intro-container both-center">
+            <h1>Hello World</h1>
             <div className="intro">
                 <h2>You got the travel plans,
                     we  <br /> got the travel vans.</h2>
                 <p>Add adventure to your life by joining the #vanlife movement.<br />  Rent the perfect van to make your perfect road trip.</p>
                 <Link to="/vans" id="find"><button id="find">Find your van</button></Link>
             </div>
+            <p>Hello</p>
         </div>
     </>
   )
