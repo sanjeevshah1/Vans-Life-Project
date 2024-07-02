@@ -1,7 +1,6 @@
 import {Link, NavLink, Outlet, useParams} from "react-router-dom"
 import { useEffect, useState } from "react"
 import { VansType } from "../../types"
-// import { useState } from "react"
 import "./../../../server.js"
 const HostVanDetails = () => {
     const { id } = useParams()
@@ -17,7 +16,7 @@ const HostVanDetails = () => {
   return (
     <div className="host-van-detail-container">
         <button>
-        <Link to="host/vans">
+        <Link to="..">
           ⬅️ <span id="back">Back to all vans</span>
         </Link>
       </button>
@@ -31,7 +30,7 @@ const HostVanDetails = () => {
             </div>
         </div>
         <nav className="host-van-detail-nav">
-            <NavLink to="details" className={({isActive}) => isActive? "current-link" : ""}>
+            <NavLink to="." end className={({isActive}) => isActive? "current-link" : ""}>
                 Details
             </NavLink>
             <NavLink to="pricing" className={({isActive}) => isActive? "current-link" : ""}>
