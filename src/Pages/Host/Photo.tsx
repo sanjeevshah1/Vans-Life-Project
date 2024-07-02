@@ -1,7 +1,9 @@
-
+import van from "./../../assets/van.png"
 const Photo = () => {
   return (
-    <div>Photo</div>
+    <div className="price-container">
+      <img src={van} alt="van-image" />
+    </div>
   )
 }
 
