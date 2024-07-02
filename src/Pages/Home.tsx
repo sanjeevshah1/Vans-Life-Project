@@ -4,7 +4,6 @@ const Home = () => {
   return (
    <>
         <div className="intro-container both-center">
-            <h1>Hello World</h1>
             <div className="intro">
                 <h2>You got the travel plans,
                     we  <br /> got the travel vans.</h2>
