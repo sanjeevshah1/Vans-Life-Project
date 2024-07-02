@@ -16,7 +16,7 @@ const HostVanDetails = () => {
   return (
     <div className="host-van-detail-container">
         <button>
-        <Link to="..">
+        <Link to=".."relative="path">
           ⬅️ <span id="back">Back to all vans</span>
         </Link>
       </button>
