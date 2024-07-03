@@ -18,6 +18,8 @@ import HostVanDetails from './Pages/Host/HostVanDetails.tsx'
 import Details from './Pages/Host/Details.tsx'
 import Pricing from './Pages/Host/Pricing.tsx'
 import Photo from './Pages/Host/Photo.tsx'
+import PageNotFound from './Pages/PageNotFound.tsx'
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -39,6 +41,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </Route>
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<PageNotFound />}/>
         </Route>
       </Routes>
     </BrowserRouter>

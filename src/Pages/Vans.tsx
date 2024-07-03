@@ -92,7 +92,7 @@ const Vans: React.FC = () => {
           }
           return (
             <div className="van" key={van.id}>
-              <Link to={van.id}>
+              <Link to={van.id} state={{search: searchParams.toString(), type: typeFilter}}>
                 <img src={van.imageUrl} alt={van.name} />
                 <div className="item-money flex">
                   <p>{van.name}</p>

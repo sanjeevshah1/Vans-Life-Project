@@ -40,5 +40,4 @@ const HostVans = () => {
         </div>
   )
 }
-
 export default HostVans

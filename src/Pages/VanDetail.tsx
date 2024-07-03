@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { VansType } from "../types.js";
@@ -9,6 +9,8 @@ const VanDetail = () => {
   const [vanDetail, setVanDetail] = useState<VansType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
+  const location = useLocation()
+  // if(location.state.search) alert(location.state.search)
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -55,9 +57,9 @@ const VanDetail = () => {
   return (
     <div className="detail-container">
       <button>
-        <Link to=".."
+        <Link to={location.state ? `..?${location.state.search}`: ".."}
         relative="path">
-          ⬅️ <span id="back">Back to all vans</span>
+          ⬅️ <span id="back">Back to {location.state.type? `${location.state.type}` : "all"}  vans</span>
         </Link>
       </button>
       <div className="container flex">

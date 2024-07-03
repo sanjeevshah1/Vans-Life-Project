@@ -2,7 +2,7 @@ import {NavLink, Link} from "react-router-dom"
 const Header = () => {
   return (
     <header className="nav-bar verti-center">
-        <Link id="logo" to="home">#VANLIFE</Link>
+        <Link id="logo" to="/">#VANLIFE</Link>
         <nav className="links flex">
             <NavLink
              to="/host"
