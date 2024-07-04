@@ -1,11 +1,13 @@
 import {NavLink, Link} from "react-router-dom"
+import avatar from "./../assets/avatar.png"
 const Header = () => {
+  // const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn") || "false")
   return (
     <header className="nav-bar verti-center">
         <Link id="logo" to="/">#VANLIFE</Link>
         <nav className="links flex">
             <NavLink
-             to="/host"
+             to="host"
              className={({ isActive }) => (isActive ? "current-link" : "")}
              >Host</NavLink>
 
@@ -18,6 +20,15 @@ const Header = () => {
              to="vans"
              className={({ isActive }) => (isActive ? "current-link" : "")}
             >Vans</NavLink>
+
+            <NavLink
+             to="login"
+             className={({ isActive }) => (isActive ? "current-link" : "")}
+            ><img src={avatar} id="user" alt="user-icon" /></NavLink>
+
+           <button onClick={()=>{
+              localStorage.removeItem("isLoggedIn")
+            }}>Log Out</button>
             
         </nav>
     </header>

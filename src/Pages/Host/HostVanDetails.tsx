@@ -1,17 +1,32 @@
 import {Link, NavLink, Outlet, useParams} from "react-router-dom"
 import { useEffect, useState } from "react"
-import { VansType } from "../../types"
-import "./../../../server.js"
+import { VansType, ErrorType } from "../../types"
+import { getHostVans } from "../../api"
 const HostVanDetails = () => {
     const { id } = useParams()
     const [currentVan, setCurrentVan] = useState<VansType | null>(null)
-    useEffect(() => {
-        fetch(`/api/host/vans/${id}`)
-            .then(res => res.json())
-            .then(data => setCurrentVan(data.vans[0]))
-    }, [])
-    if(!currentVan) {
+    const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<ErrorType | null>(null);
+    useEffect( () => {
+      const fetchData = async () => {
+        try{
+          const data = await getHostVans(id)
+          setCurrentVan(data as VansType);
+        }catch(error){
+          setError(error as ErrorType);
+        }finally{
+          setLoading(false);
+        }
+      }
+      fetchData();
+  }, [id]);
+  
+    if(loading) {
         return <div>Loading......</div>
+    }
+
+    if(error) {
+        return <div>Error: {error.message}</div>
     }
   return (
     <div className="host-van-detail-container">
@@ -22,10 +37,10 @@ const HostVanDetails = () => {
       </button>
       <div className="host-detail">
         <div className="first-row">
-            <img src={currentVan.imageUrl} alt="van" />
+            <img src={currentVan?.imageUrl} alt="van" />
             <div className="temp">
                 <button style={{ backgroundColor : "#E17654"}}>Simple</button>
-                <h2>{currentVan.name}</h2>
+                <h2>{currentVan?.name}</h2>
                 <p id="price">{currentVan?.price}/day</p>
             </div>
         </div>

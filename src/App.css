@@ -45,6 +45,7 @@ button{
   padding-left: 1.625em;
   padding-right: 1.625em;
   justify-content: space-between;
+  align-items: center;
 }
 
 #logo{
@@ -57,6 +58,12 @@ a{
   min-width: 3.36em;
   text-decoration: none;
   color: black;
+}
+#user{
+  width: 24px;
+  height: 24px;
+  margin-top: -3px;
+  margin: 0 auto;
 }
 
 /* Intro Css */
@@ -561,6 +568,52 @@ text-align: center;
   height: 50px;
   background-color: #161616;
   border-radius: 5px;
+}
+
+/* Login Page CSS */
+.login-container{
+  margin: 0 auto;
+  padding: 2em 1.625em 4em 1.625em;
+  align-items: center;
+  width: 100%;
+}
+
+.form{
+  width: 100%;
+  margin-top: 30px;
+}
+.form button{
+  margin-top: 25px;
+  width: 60%;
+  max-width:400px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #FF8C38;
+margin-bottom: 25px;
+}
+.form input{
+  width: 100%;
+  max-width:400px;
+  height: 42px;
+  padding: 9px 13px 9px 13px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4D4D4D; 
+  outline: none;
+}
+.form input:first-child{
+  border-bottom: none;
+  border-bottom-left-radius:0 ;
+  border-bottom-right-radius:0 ;
+}
+.form input:nth-child(2){
+  border-top-left-radius:0 ;
+  border-top-right-radius:0 ;
+}
+#new{
+  color: #FF8C38;
+  ;
 }
 @media screen and (max-width: 675px) {
   .about-container{

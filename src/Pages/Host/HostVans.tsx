@@ -1,31 +1,40 @@
 import { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
-import { VansType } from "../../types.js"
-import "./../../../server.js"
+import { VansType,ErrorType } from "../../types.js"
+import { getHostVans } from "../../api.js"
 const HostVans = () => {
     const [hostVansData ,setHostVansData] = useState< VansType[]| null>(null); 
-    useEffect(() =>{
-            const fetchHostVans = async () =>{
-                try{
-                    const response = await fetch("/api/host/vans")
-                    const data = await response.json();
-                    setHostVansData(data.vans)
-                }catch(error){;
-                    console.error("error found",error)
-                }
-            }
-            fetchHostVans()
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<ErrorType | null>(null)
+
+    useEffect( () => {
+        const fetchData = async () => {
+          try{
+            const data = await getHostVans()
+            setHostVansData(data as VansType[]);
+          }catch(error){
+            setError(error as ErrorType);
+          }finally{
+            setLoading(false);
+          }
         }
-        ,[]);
-        if(!hostVansData){
-            return <div>No vans data found</div>
-        }
+        fetchData();
+    }, []);
+    
+    if(loading){
+        return <div>Loading......</div>
+    }
+    
+    if(error){
+        return <div>Error: {error.message}</div>
+    }
+
   return (
     <div className="listed-vans">
             <div className="head">
                 <p>Your Listed Vans</p>
             </div>
-            {hostVansData.map((van) => (
+            {hostVansData?.map((van) => (
                 <Link to={van.id} key={van.id}>
                 <div className="van-box verti-center">
                     <img src={van.imageUrl} alt={van.name} />

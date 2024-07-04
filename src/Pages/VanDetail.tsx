@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { VansType } from "../types.js";
-import "./../../server.js";
+import { VansType, ErrorType } from "../types.js";
+import { getVans } from "../api.js";
 
 const VanDetail = () => {
   const { id } = useParams<{id: string}>();
@@ -10,28 +10,22 @@ const VanDetail = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
   const location = useLocation()
-  // if(location.state.search) alert(location.state.search)
 
-  useEffect(() => {
-    const fetchDetail = async () => {
-      try {
-        const response = await fetch(`/api/vans/${id}`);
-        if (!response.ok) {
-          throw new Error("Network problem");
-        }
-        const data = await response.json();
-        if (!id) {
-            throw new Error("Invalid van ID");
-          }
-        setVanDetail(data.vans)
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
+  useEffect( () => {
+    const fetchData = async () => {
+      try{
+        const data = await getVans(id)
+        setVanDetail(data as VansType);
+      }catch(error){
+        setError(error as ErrorType);
+      }finally{
         setLoading(false);
       }
-    };
-    fetchDetail();
+    }
+    fetchData();
+
   }, [id]);
+
 
   if (loading) {
     return <div>Loading.......</div>;
