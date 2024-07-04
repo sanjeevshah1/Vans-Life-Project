@@ -3,6 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body{
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  background-color: var(--backgroundColor);
+  transition: background-color 0.4s, color 0.4s;
+}
+
 :root {
   --rugged-color: #115E59;
   --simple-color: #E17654;
@@ -63,7 +71,7 @@ h2{
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 34px;
-  margin-right: 10px; /* Add some space between the slider and the label */
+  margin-right: 10px; 
 }
 
 .slider:before {
@@ -89,19 +97,11 @@ input:checked + .slider:before {
 .switch label {
   cursor: pointer;
   font-size: 16px;
-  color: var(--blackWhite); /* Adjust color as needed */
+  color: var(--blackWhite); 
 }
 img{
   max-width: 100%;
   display: block;
-}
-html, body{
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  /* background-color: #FFF7ED; */
-  background-color: var(--backgroundColor);
-  transition: background-color 0.4s, color 0.4s;
 }
 
 button{
@@ -131,9 +131,7 @@ button:hover{
   flex-direction: column;
 }
 /* Home Page Css */
-/* styles.css */
-
-/* General Styles */
+/* Navbar Css */
 .nav-bar {
   height: 7em;
   padding-left: 1.625em;
@@ -321,8 +319,6 @@ a{
 .msg{
   row-gap: 20px;
   padding: 30px;
-  background-color: var(--aboutMessageBackground);
-  /* background-color: #FFCC8D; */
   max-width: 500px;
   width: 100%;
 }
