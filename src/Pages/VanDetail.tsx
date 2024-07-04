@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { VansType } from "../types.js";
-import "./../../server.js";
 
 const VanDetail = () => {
   const { id } = useParams<{id: string}>();
@@ -10,7 +9,6 @@ const VanDetail = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
   const location = useLocation()
-  // if(location.state.search) alert(location.state.search)
 
   useEffect(() => {
     const fetchDetail = async () => {

@@ -24,6 +24,10 @@ const Header = () => {
              to="login"
              className={({ isActive }) => (isActive ? "current-link" : "")}
             ><img src={avatar} id="user" alt="user-icon" /></NavLink>
+
+            <button onClick={()=>{
+              localStorage.removeItem("isLoggedIn")
+            }}>Log Out</button>
             
         </nav>
     </header>

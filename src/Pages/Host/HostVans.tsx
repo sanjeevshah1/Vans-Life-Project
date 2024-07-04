@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
 import { VansType } from "../../types.js"
-import "./../../../server.js"
 const HostVans = () => {
     const [hostVansData ,setHostVansData] = useState< VansType[]| null>(null); 
     useEffect(() =>{

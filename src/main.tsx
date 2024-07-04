@@ -4,6 +4,7 @@ import  {BrowserRouter, Routes, Route} from "react-router-dom"
 import App from './App.tsx'
 import "./App.css"
 import './index.css'
+import "./../server.js"
 import Home from "./Pages/Home.tsx"
 import About from "./Pages/About.tsx"
 import Vans from './Pages/Vans.tsx'

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./../App.css";
 import "../../server.js";
-import {VansType} from "../types.ts"
+import {VansType, ErrorType} from "../types.ts"
 import {Link, useSearchParams} from "react-router-dom"
 
 const Vans: React.FC = () => {
@@ -10,12 +10,7 @@ const Vans: React.FC = () => {
   const [vans, setVans] = useState<VansType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   
-  type Error = {
-    message: string;
-    name: string;
-    stack?: string;
-  };
-  
+
   const handleClick = (key:string, name: (string | null)) =>{
     setSearchParams((prevParams) =>{
       if(name === null) prevParams.delete(key)
@@ -31,7 +26,7 @@ const Vans: React.FC = () => {
   //   setSearchParams({type: value.toLowerCase()});
   // } 
 
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<ErrorType | null>(null);
 
   useEffect(() => {
     const fetchVans = async () => {
@@ -47,7 +42,7 @@ const Vans: React.FC = () => {
         const data = await response.json();
         setVans(data.vans);
       } catch (error) {
-        setError(error as Error);
+        setError(error as ErrorType);
       } finally {
         setLoading(false);
       }

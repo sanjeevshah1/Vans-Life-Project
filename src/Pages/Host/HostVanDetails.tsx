@@ -1,14 +1,13 @@
 import {Link, NavLink, Outlet, useParams} from "react-router-dom"
 import { useEffect, useState } from "react"
 import { VansType } from "../../types"
-import "./../../../server.js"
 const HostVanDetails = () => {
     const { id } = useParams()
     const [currentVan, setCurrentVan] = useState<VansType | null>(null)
     useEffect(() => {
         fetch(`/api/host/vans/${id}`)
             .then(res => res.json())
-            .then(data => setCurrentVan(data.vans[0]))
+            .then(data => setCurrentVan(data.vans))
     }, [])
     if(!currentVan) {
         return <div>Loading......</div>
