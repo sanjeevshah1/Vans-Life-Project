@@ -33,7 +33,7 @@ const Vans: React.FC = () => {
     const fetchData = async () => {
       try{
         const data = await getVans()
-        setVans(data);
+        setVans(data as VansType[]);
       }catch(error){
         setError(error as ErrorType);
       }finally{

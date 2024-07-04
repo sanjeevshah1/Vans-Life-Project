@@ -15,7 +15,7 @@ const VanDetail = () => {
     const fetchData = async () => {
       try{
         const data = await getVans(id)
-        setVanDetail(data);
+        setVanDetail(data as VansType);
       }catch(error){
         setError(error as ErrorType);
       }finally{

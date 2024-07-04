@@ -11,7 +11,7 @@ const HostVans = () => {
         const fetchData = async () => {
           try{
             const data = await getHostVans()
-            setHostVansData(data);
+            setHostVansData(data as VansType[]);
           }catch(error){
             setError(error as ErrorType);
           }finally{
@@ -28,7 +28,7 @@ const HostVans = () => {
     if(error){
         return <div>Error: {error.message}</div>
     }
-    
+
   return (
     <div className="listed-vans">
             <div className="head">

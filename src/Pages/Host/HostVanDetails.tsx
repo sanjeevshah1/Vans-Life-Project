@@ -11,7 +11,7 @@ const HostVanDetails = () => {
       const fetchData = async () => {
         try{
           const data = await getHostVans(id)
-          setCurrentVan(data);
+          setCurrentVan(data as VansType);
         }catch(error){
           setError(error as ErrorType);
         }finally{
