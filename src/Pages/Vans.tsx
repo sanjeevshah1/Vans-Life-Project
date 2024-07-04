@@ -3,13 +3,14 @@ import "./../App.css";
 import "../../server.js";
 import {VansType, ErrorType} from "../types.ts"
 import {Link, useSearchParams} from "react-router-dom"
+import { getVans } from "../api.ts";
 
 const Vans: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   const [vans, setVans] = useState<VansType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  
+  const [error, setError] = useState<ErrorType | null>(null);
 
   const handleClick = (key:string, name: (string | null)) =>{
     setSearchParams((prevParams) =>{
@@ -26,29 +27,21 @@ const Vans: React.FC = () => {
   //   setSearchParams({type: value.toLowerCase()});
   // } 
 
-  const [error, setError] = useState<ErrorType | null>(null);
+  
 
-  useEffect(() => {
-    const fetchVans = async () => {
-      try {
-        const response = await fetch("/api/vans");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          throw new TypeError("Received non-JSON response");
-        }
-        const data = await response.json();
-        setVans(data.vans);
-      } catch (error) {
+  useEffect( () => {
+    const fetchData = async () => {
+      try{
+        const data = await getVans()
+        setVans(data);
+      }catch(error){
         setError(error as ErrorType);
-      } finally {
+      }finally{
         setLoading(false);
       }
-    };
+    }
+    fetchData();
 
-    fetchVans();
   }, []);
 
   if (loading) {

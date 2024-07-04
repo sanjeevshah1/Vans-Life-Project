@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {Link, useLocation, useNavigate} from "react-router-dom"
-import { FormType, LoginErrorType } from "../types";
+import { FormType, ErrorType } from "../types";
+import { loginUser } from "../api";
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Login = () => {
     })
 
      const [status, setStatus] = useState<"idle" |  "submitting">("idle");
-     const [error, setError] = useState<null | LoginErrorType>(null);
+     const [error, setError] = useState<null | ErrorType>(null);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name , value} = event.target;
@@ -31,10 +32,10 @@ const Login = () => {
                 console.log(response)
                 setError(null);
                 localStorage.setItem("isLoggedIn", JSON.stringify(true));
-                navigate("/host", {replace : true})
+                navigate(location.state?.path || "/host", {replace : true})
             }catch(error){
                 console.log(error)
-                setError(error as LoginErrorType) 
+                setError(error as ErrorType) 
             }finally{
                 setStatus("idle");
     
@@ -44,23 +45,6 @@ const Login = () => {
         
     }
 
-    async function loginUser(creds:FormType) {
-        const res = await fetch("/api/login",
-            { method: "post", body: JSON.stringify(creds) }
-        )
-        const data = await res.json()
-    
-        
-        if (!res.ok) {
-            throw {
-                message: data.message,
-                statusText: res.statusText,
-                status: res.status
-            }
-        }
-    
-        return data
-    }
     
   return (
     <div className="login-container both-center column">

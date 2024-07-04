@@ -14,12 +14,6 @@ export type FormType = {
 
 export type ErrorType = {
   message: string;
-  name: string;
-  stack?: string;
-};
-
-export type LoginErrorType = {
-  message: string;
   statusText: string;
   status: string;
 }
