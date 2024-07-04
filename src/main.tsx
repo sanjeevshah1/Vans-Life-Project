@@ -19,7 +19,8 @@ import Details from './Pages/Host/Details.tsx'
 import Pricing from './Pages/Host/Pricing.tsx'
 import Photo from './Pages/Host/Photo.tsx'
 import PageNotFound from './Pages/PageNotFound.tsx'
-
+import Login from './Pages/Login.tsx'
+import AuthRequired from './Pages/Host/AuthRequired.tsx'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -29,17 +30,20 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
+          <Route path="login" element={<Login />} />
           <Route path="vans/:id" element={<VanDetail />} />
-          <Route path="host" element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="vans" element={<HostVans />} />
-            <Route path="vans/:id" element={<HostVanDetails/>}>
-              <Route index element={<Details />}/>
-              <Route path="pricing" element={<Pricing />}/>
-              <Route path="photo" element={<Photo/>}/>
+          <Route  element={<AuthRequired/>}>
+            <Route path="host" element={<HostLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="income" element={<Income />} />
+              <Route path="vans" element={<HostVans />} />
+              <Route path="vans/:id" element={<HostVanDetails/>}>
+                <Route index element={<Details />}/>
+                <Route path="pricing" element={<Pricing />}/>
+                <Route path="photo" element={<Photo/>}/>
+              </Route>
+              <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route path="reviews" element={<Reviews />} />
           </Route>
           <Route path="*" element={<PageNotFound />}/>
         </Route>
