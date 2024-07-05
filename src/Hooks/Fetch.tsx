@@ -1,33 +1,46 @@
-import { useEffect, useState } from "react";
-import "./../../server.js"
-import { VansType } from "../types.js";
+import { useState, useEffect } from "react";
+import { VansType, ErrorType } from "./../types";
 
-type ErrorType = {
-    message: string;
-    name: string;
-    stack?: string;
-  };
-export default function Fetch(url: string): [VansType[] | null, ErrorType | null, boolean] {
-    const [data, setData] = useState<VansType[] | null>(null);
-    const [error, setError] = useState<any | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    useEffect(()=>{
-    const fetchData = async (url: string) => {
-        try{
-            setLoading(true);
-            const response = await fetch(url);
-            if(!response.ok){
-                throw new Error("Network response was not ok");
-            }
-            const data:VansType[] = await response.json();
-            setData(data);
-        }catch(error){
-            setError(error as ErrorType);
-        }finally{
-            setLoading(false);
+type UseVansProps = {
+  id?: string;
+  isHost?: boolean;
+};
+
+function useVans({ id, isHost }: UseVansProps) {
+  const [vans, setVans] = useState<VansType[] | VansType | null>(null);
+  const [error, setError] = useState<ErrorType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchVans = async () => {
+      try {
+        const url = isHost 
+          ? id ? `/api/host/vans/${id}` : "/api/host/vans"
+          : id ? `/api/vans/${id}` : "/api/vans";
+          
+        const res = await fetch(url);
+
+        if (!res.ok) {
+          throw {
+            message: "Failed to fetch vans",
+            statusText: res.statusText,
+            status: res.status.toString(),
+          } as ErrorType;
         }
-        fetchData(url);
-    }
-   },[url]);
-   return [data,error,loading]
+
+        const data = await res.json();
+        setVans(data.vans);
+      } catch (err) {
+        setError(err as ErrorType);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVans();
+  }, [id, isHost]);
+
+  return { vans, error, loading };
 }
+
+export default useVans;
