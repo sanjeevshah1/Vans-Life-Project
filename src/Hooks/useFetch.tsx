@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { VansType, ErrorType } from "./../types";
+import { VansType, ErrorType } from "../types";
 
 type UseVansProps = {
   id?: string;
   isHost?: boolean;
 };
 
-function useVans({ id, isHost }: UseVansProps) {
+function useFetch({ id, isHost }: UseVansProps) {
   const [vans, setVans] = useState<VansType[] | VansType | null>(null);
   const [error, setError] = useState<ErrorType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -43,4 +43,4 @@ function useVans({ id, isHost }: UseVansProps) {
   return { vans, error, loading };
 }
 
-export default useVans;
+export default useFetch;

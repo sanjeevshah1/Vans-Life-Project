@@ -1,7 +1,7 @@
 import {Link, NavLink, Outlet, useParams} from "react-router-dom"
 import { useEffect, useState } from "react"
 import { VansType, ErrorType } from "../../types"
-import { getHostVans } from "../../api"
+import { getVan } from "../../api"
 const HostVanDetails = () => {
     const { id } = useParams()
     const [currentVan, setCurrentVan] = useState<VansType | null>(null)
@@ -9,8 +9,9 @@ const HostVanDetails = () => {
   const [error, setError] = useState<ErrorType | null>(null);
     useEffect( () => {
       const fetchData = async () => {
+        if(!id) return;
         try{
-          const data = await getHostVans(id)
+          const data = await getVan(id);
           setCurrentVan(data as VansType);
         }catch(error){
           setError(error as ErrorType);

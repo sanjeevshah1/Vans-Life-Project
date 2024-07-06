@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { VansType, ErrorType } from "../types.js";
-import { getVans } from "../api.js";
+import { getVan } from "../api.js";
 
 const VanDetail = () => {
   const { id } = useParams<{id: string}>();
@@ -13,8 +13,9 @@ const VanDetail = () => {
 
   useEffect( () => {
     const fetchData = async () => {
+      if(!id) return;
       try{
-        const data = await getVans(id)
+        const data = await getVan(id)
         setVanDetail(data as VansType);
       }catch(error){
         setError(error as ErrorType);
