@@ -1,8 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { VansType, ErrorType } from "../types.js";
-import { getVans } from "../api.js";
+import { getVan } from "../api.js";
+import PageNotFound from "./PageNotFound.js";
 
 const VanDetail = () => {
   const { id } = useParams<{id: string}>();
@@ -10,11 +11,15 @@ const VanDetail = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
   const location = useLocation()
-
+  if (!id || isNaN(Number(id))) {
+    return <PageNotFound/>
+  }
   useEffect( () => {
     const fetchData = async () => {
+     
+      if(!id) return;
       try{
-        const data = await getVans(id)
+        const data = await getVan(id)
         setVanDetail(data as VansType);
       }catch(error){
         setError(error as ErrorType);

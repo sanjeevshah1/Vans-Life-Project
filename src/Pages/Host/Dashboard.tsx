@@ -1,6 +1,34 @@
 import Star from "./../../assets/star.png"
-import van from "./../../assets/van.png"
+import { getHostVans } from "../../api"
+import { useEffect, useState } from "react"
+import { ErrorType, VansType } from "../../types"
 const Dashboard = () => {
+    const [vans, setVans] = useState<VansType[]>([])
+    const [error, setError] = useState<ErrorType | null>(null)
+    const [loading, setLoading] = useState<boolean>(true);
+   
+    useEffect( () => {
+        const fetchData = async () => {
+          try{
+            const data  = await getHostVans()
+            setVans(data as VansType[]);
+          }catch(error){
+            setError(error as ErrorType);
+          }finally{
+            setLoading(false);
+          }
+        }
+        fetchData();
+    
+      }, []);
+
+      if (loading) {
+        return <div>Loading...</div>;
+      }
+    
+      if (error) {
+        return <div>Error: {error.message}</div>;
+      }
  return(
     <div className="dashboard-container">
         <div className="welcome flex verti-center">
@@ -24,30 +52,16 @@ const Dashboard = () => {
                 <p>Your Listed Vans</p>
                 <p>View all</p>
             </div>
-            <div className="van-box">
-                <img src={van} alt="van" />
-                <div className="van-explain">
-                    <p>Modest Explorer</p>
-                    <p>$60/day</p>
-                </div>
+            {vans.map((van)=>(
+                <div className="van-box" key={van.id}>
+                    <img src={van.imageUrl} alt={van.name} />
+                    <div className="van-explain">
+                        <p>{van.name}</p>
+                        <p>{van.price}/day</p>
+                    </div>
                 <p>Edit</p>
-            </div>
-            <div className="van-box">
-                <img src={van} alt="van" />
-                <div className="van-explain">
-                    <p>Modest Explorer</p>
-                    <p>$60/day</p>
                 </div>
-                <p>Edit</p>
-            </div>
-            <div className="van-box">
-                <img src={van} alt="van" />
-                <div className="van-explain">
-                    <p>Modest Explorer</p>
-                    <p>$60/day</p>
-                </div>
-                <p>Edit</p>
-            </div>
+            ))}
         </div>
     </div>
  )

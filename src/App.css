@@ -3,6 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body{
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  background-color: var(--backgroundColor);
+  transition: background-color 0.4s, color 0.4s;
+}
+
 :root {
   --rugged-color: #115E59;
   --simple-color: #E17654;
@@ -41,6 +49,9 @@ p{
 h2{
   color: var(--blackWhite);
 }
+a{
+  color: var(--linkColor);
+}
 /* test css */
 .switch {
   position: relative;
@@ -63,7 +74,7 @@ h2{
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 34px;
-  margin-right: 10px; /* Add some space between the slider and the label */
+  margin-right: 10px; 
 }
 
 .slider:before {
@@ -89,19 +100,11 @@ input:checked + .slider:before {
 .switch label {
   cursor: pointer;
   font-size: 16px;
-  color: var(--blackWhite); /* Adjust color as needed */
+  color: var(--blackWhite); 
 }
 img{
   max-width: 100%;
   display: block;
-}
-html, body{
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  /* background-color: #FFF7ED; */
-  background-color: var(--backgroundColor);
-  transition: background-color 0.4s, color 0.4s;
 }
 
 button{
@@ -131,9 +134,7 @@ button:hover{
   flex-direction: column;
 }
 /* Home Page Css */
-/* styles.css */
-
-/* General Styles */
+/* Navbar Css */
 .nav-bar {
   height: 7em;
   padding-left: 1.625em;
@@ -239,7 +240,7 @@ a{
 
 /* Intro Css */
 .intro-container{
-  padding: 140px 30px 95px 30px;
+  padding: 202px 30px 95px 30px;
   background-image: url("./assets/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -321,10 +322,9 @@ a{
 .msg{
   row-gap: 20px;
   padding: 30px;
-  background-color: var(--aboutMessageBackground);
-  /* background-color: #FFCC8D; */
   max-width: 500px;
   width: 100%;
+  background-color: var(--aboutMessageBackground)
 }
 .msg p{
 font-size: 1.5rem;
@@ -508,7 +508,7 @@ margin-bottom: 10px;
 .van-box{
   padding: 1.1em 1.625em 1.1em 1.625em;
   margin-top: 20px;
-  background-color: #FFFFFF;
+  background-color: var(--whiteBlack);
   column-gap: 20px;
   display: flex;
   align-items: center;
@@ -620,7 +620,7 @@ color: #8C8C8C;
 .income-box{
   justify-content: space-between;
   padding: 1.3em 1.625em 1.3em 1.625em;
- background-color: #FFFFFF;
+ background-color: var(--whiteBlack)
 }
 .income-box:not(:last-of-type){
   margin-bottom: 30px;

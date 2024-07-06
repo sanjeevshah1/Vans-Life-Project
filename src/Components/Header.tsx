@@ -21,6 +21,12 @@ const Header = () => {
       </div>
       <nav className={`links both-center`} style={{display: menuOpen ? "none": "flex"}}>
         <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "current-link" : "")}
+        >
+          Home
+        </NavLink>
+        <NavLink
           to="host"
           className={({ isActive }) => (isActive ? "current-link" : "")}
         >
