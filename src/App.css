@@ -49,6 +49,9 @@ p{
 h2{
   color: var(--blackWhite);
 }
+a{
+  color: var(--linkColor);
+}
 /* test css */
 .switch {
   position: relative;
@@ -237,7 +240,7 @@ a{
 
 /* Intro Css */
 .intro-container{
-  padding: 140px 30px 95px 30px;
+  padding: 202px 30px 95px 30px;
   background-image: url("./assets/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -321,6 +324,7 @@ a{
   padding: 30px;
   max-width: 500px;
   width: 100%;
+  background-color: var(--aboutMessageBackground)
 }
 .msg p{
 font-size: 1.5rem;
@@ -504,7 +508,7 @@ margin-bottom: 10px;
 .van-box{
   padding: 1.1em 1.625em 1.1em 1.625em;
   margin-top: 20px;
-  background-color: #FFFFFF;
+  background-color: var(--whiteBlack);
   column-gap: 20px;
   display: flex;
   align-items: center;
@@ -616,7 +620,7 @@ color: #8C8C8C;
 .income-box{
   justify-content: space-between;
   padding: 1.3em 1.625em 1.3em 1.625em;
- background-color: #FFFFFF;
+ background-color: var(--whiteBlack)
 }
 .income-box:not(:last-of-type){
   margin-bottom: 30px;
