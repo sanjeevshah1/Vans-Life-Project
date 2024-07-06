@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="nav-bar verti-center">
       <div className="temporary">
-      <Link id="logo" to="/">#VANLIFE</Link>
+      <Link id="logo" to="/">#VANSLIFE</Link>
       <div className={`menu-icon ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
         &#9776;
       </div>
