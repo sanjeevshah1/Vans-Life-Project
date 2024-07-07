@@ -24,6 +24,6 @@ Check out the live demo of the application [here](https://vanslifereact.netlify.
 To get started with the project, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/yourusername/vanslifereact.git
+git clone https://github.com/sanjeevshah1/vanslifereact.git
 cd vanslifereact
 npm install
