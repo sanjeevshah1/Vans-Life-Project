@@ -1,12 +1,11 @@
 // Header.tsx
 import  { useState } from 'react';
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import avatar from "./../assets/avatar.png";
-
+// import avatar from "./../assets/avatar.png";
+import user from "./../assets/van2.svg"
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -49,7 +48,7 @@ const Header = () => {
           id="login"
           className={({ isActive }) => (isActive ? "current-link" : "")}
         >
-          <img src={avatar} id="user" alt="user-icon" />
+          <img src={user} id="user" alt="user-icon" />
           <p>Login</p>
         </NavLink>
         <button
