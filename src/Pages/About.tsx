@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const PageVariants = {
     initial: {
-        x: "100vw"
+        x: "100vw",
     },
     visible: {
         x: 0,
@@ -15,28 +15,7 @@ export const PageVariants = {
         }
     }
 }
-
-type VariantsType = {
-    initial: {
-        x: string | number;
-        visibility: string;
-        opacity: number;
-        height: number;
-    },
-    visible: {
-        x: string | number;
-        visibility: string;
-        opacity: number;
-        height: number;
-        marginTop: string;
-        marginBottom: string;
-        transition: {
-            delay: number;
-            type: string;
-            duration: number;
-        },
-    }
-}
+type VariantsType = any;
 
 const About = () => {
   const Variants: VariantsType = {
