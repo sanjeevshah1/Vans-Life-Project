@@ -2,6 +2,8 @@ import { useState } from "react"
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { FormType, ErrorType } from "../types";
 import { loginUser } from "../api";
+import {motion} from "framer-motion"
+import { PageVariants } from "./About";
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -47,7 +49,11 @@ const Login = () => {
 
     
   return (
-    <div className="login-container both-center column">
+    <motion.div
+    variants={PageVariants}
+    initial="initial"
+    animate="visible"
+     className="login-container both-center column">
             {
                 location.state?.message &&
                 <>
@@ -80,7 +86,7 @@ const Login = () => {
             <button disabled={status === "submitting"}>{status === "submitting" ? "Logging in..." : "Log in"}</button>
             <p>Don't have an account? <Link to="#" id="new">Create one now</Link></p>
         </form>
-    </div>
+    </motion.div>
   )
 }
 

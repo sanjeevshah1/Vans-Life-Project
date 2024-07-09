@@ -2,6 +2,8 @@ import Star from "./../../assets/star.png"
 import { getHostVans } from "../../api"
 import { useEffect, useState } from "react"
 import { ErrorType, VansType } from "../../types"
+import {motion} from "framer-motion"
+import { PageVariants } from "../About"
 const Dashboard = () => {
     const [vans, setVans] = useState<VansType[]>([])
     const [error, setError] = useState<ErrorType | null>(null)
@@ -30,7 +32,11 @@ const Dashboard = () => {
         return <div>Error: {error.message}</div>;
       }
  return(
-    <div className="dashboard-container">
+    <motion.div 
+    variants={PageVariants}
+    initial="initial"
+    animate="visible"
+    className="dashboard-container">
         <div className="welcome flex verti-center">
           <div className="welcome-first flex column">
             <h2>Welcome!</h2>
@@ -63,7 +69,7 @@ const Dashboard = () => {
                 </div>
             ))}
         </div>
-    </div>
+    </motion.div>
  )
 }
 

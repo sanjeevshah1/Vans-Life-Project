@@ -3,10 +3,30 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import user from "./../assets/van2.svg";
 
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   
+  const containerVariants = {
+    initial: {
+      x: "100vw",
+      opacity: 0,
+    },
+
+    visible: {
+        x: menuOpen ? 0 : 0,
+        opacity: menuOpen ? 1 : 1,
+        
+        transition: {
+          duration: 0.65,
+          // delay: 0.5,
+           type: 'tween',
+        }
+    }
+  }
+  
+
   const toggleMenu = () => {
     setMenuOpen(prevMenuOpen => !prevMenuOpen);
   };
@@ -26,9 +46,9 @@ const Header = () => {
       </div>
       <motion.nav
         className={`links both-center ${menuOpen ? '' : 'hide'}`}
-        initial={{ x: "-100vw", y: "-100vh", opacity: 0 }}
-        animate={{ x: menuOpen ? 0 : 0, y: menuOpen ? 0 : 0, opacity: menuOpen ? 1 : 1}}
-        transition={{ duration: 0.8 }}
+        variants = {containerVariants}
+        initial="initial"
+        animate="visible"
       >
         <NavLink to="/" className={({ isActive }) => isActive ? "current-link" : ""}>
           Home

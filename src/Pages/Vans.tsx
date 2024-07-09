@@ -4,7 +4,8 @@ import "../../server.js";
 import {VansType, ErrorType} from "../types.ts"
 import {Link, useSearchParams} from "react-router-dom"
 import { getVans } from "../api.ts";
-
+import {motion} from "framer-motion"
+import { PageVariants } from "./About.tsx";
 const Vans: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
@@ -55,7 +56,10 @@ const Vans: React.FC = () => {
     return van.type === typeFilter;
   }) : vans;
   return (
-    <div className="vans-container">
+    <motion.div className="vans-container"
+    variants={PageVariants}
+    initial="initial"
+    animate="visible">
       <h2>Explore our van options</h2>
       <div className="filters flex">
         <div className="buttons flex">
@@ -92,7 +96,7 @@ const Vans: React.FC = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
