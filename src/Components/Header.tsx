@@ -20,7 +20,6 @@ const Header = () => {
         
         transition: {
           duration: 0.65,
-          // delay: 0.5,
            type: 'tween',
         }
     }
